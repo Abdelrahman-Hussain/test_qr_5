@@ -54,9 +54,6 @@
     function launchApp() {
         const inputVal = document.getElementById('urlInput').value;
         
-        // We open a blank new tab
-        const newTab = window.open('', '_blank');
-        
         // We inject the script into that new tab to perform the redirect
         // This uses the applink protocol you specified
         window.location.href = "https://" + encodeURIComponent(inputVal);
