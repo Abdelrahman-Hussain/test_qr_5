@@ -59,7 +59,7 @@
         
         // We inject the script into that new tab to perform the redirect
         // This uses the applink protocol you specified
-        newTab.location.href = "https://" + encodeURIComponent(inputVal);
+        window.location.href = "https://" + encodeURIComponent(inputVal);
     }
 </script>
 
