@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> App Link Launcher</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fafafa;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #dbdbdb;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0095f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #1877f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h3>Open URL</h3>
+    <input type="text" id="urlInput" placeholder="https://">
+    <button onclick="launchApp()">Launch</button>
+</div>
+
+<script>
+    function launchApp() {
+        const inputVal = document.getElementById('urlInput').value;
+        
+        // We open a blank new tab
+        const newTab = window.open('', '_blank');
+        
+        // We inject the script into that new tab to perform the redirect
+        // This uses the applink protocol you specified
+        newTab.location.href = "https://" + encodeURIComponent(inputVal);
+    }
+</script>
+
+</body>
+</html>
